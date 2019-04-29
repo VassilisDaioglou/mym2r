@@ -1,9 +1,9 @@
 # purpose: general purpose functions to communicate between MyM and R
 # author: David L. Bijl: d.l.bijl@uu.nl or dlbijl@gmail.com
 
-usethis::use_package(dplyr)
-usethis::use_package(stringr)
-usethis::use_package(reshape2)
+usethis::use_package('dplyr')
+usethis::use_package('stringr')
+usethis::use_package('reshape2')
 
 # READ THIS:
 # In general, use read.mym2r.nice because it adds text labels to the data, e.g. regions and techs
@@ -19,7 +19,7 @@ usethis::use_package(reshape2)
 #' @return vector of dimensions as listed in the header / first line of the mym file
 #' @export
 #'
-#' @examples df=read.mym2r.dims("gdp_pc.dat")
+#' @examples
 read.mym2r.dims = function(path.to.mym.file){
   # utility function to extract only the dimensions from the header in a mym file
   # input:  path to MyM output file
@@ -48,7 +48,7 @@ read.mym2r.dims = function(path.to.mym.file){
 #' @return vector of dimensions as listed in the header / first line of the mym file
 #' @export
 #'
-#' @examples df=read.mym2r.varname("gdp_pc.dat")
+#' @examples
 read.mym2r.varname = function(path.to.mym.file){
   # utility function to extract only the varname from the header in a mym file
   # input:  path to MyM output file
@@ -77,7 +77,7 @@ read.mym2r.varname = function(path.to.mym.file){
 #' @return R dataframe in 'long' format (many rows, each dimension as a 'factor' in its column, and only one column with actual values). Requires path to MyM output file
 #' @export
 #'
-#' @examples df = read.mym2r(path.to.mym.file, yearheader='year', yearsrun=NULL)
+#' @examples
 read.mym2r = function(path.to.mym.file, yearheader='year', yearsrun=NULL){
   # input:  path to MyM output file
   # output: R dataframe in 'long' format (many rows, each dimension as a 'factor' in its column, and only one column with actual values)
@@ -212,7 +212,7 @@ lookup.mym.dimlabels = function(varname){
 #' @return produces a MyM data file with your own defined file extension
 #' @export
 #'
-#' @examples  df <- read.mym2r.nice(mym.folder='')
+#' @examples
 read.mym2r.nice = function(mym.folder='', scen.econ='', filename=NULL, varname=NULL, collist=NULL, namecols=NULL, yearheader='year', yearsrun=1971:2100, novarname=FALSE) {
   # assumes you know the exact structure of the MyM file you are going to read
   # usage example:
@@ -369,7 +369,7 @@ prepare.r2mym <- function(data, stub, value.var, NaN.value = -9999) {
 #' @return returns a data file in the path provided under outputfile
 #' @export
 #'
-#' @examples   write.r2mym(data = GDPpc26reg_WDIcor_aggr_fut_out, outputfile = paste('SSPs_updated/', output, '/economy/gdp_pc.dat', sep=""),  value.var = 'GDPcap', MyM.vartype = 'REAL',  MyM.varname = 'main.GDPpc_27reg',  comment.line = Source_GDP, time.dependent = TRUE)
+#' @examples
 write.r2mym <- function(data, outputfile, value.var, MyM.vartype, MyM.varname, time.dependent = TRUE, sep.years = ',', sep.data = ',\t',
   matrix.format = TRUE, sprintf.format = NULL, comment.line = NULL, header.line = NULL) {
   # data:           should include only the data to be written, (no extra columns), e.g. as made with prepare.r2mym()
