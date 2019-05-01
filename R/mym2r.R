@@ -448,12 +448,27 @@ write.r2mym <- function(data, outputfile, value.var, MyM.vartype, MyM.varname, t
     if (!matrix.format){
       cat( paste0(out, sep=paste0(sep.data)), '\n', file = outputfile, append = TRUE)
     } else {
+
       # insert newline after every <last_dim> values
       nvalues.per.row = unname(dim.noyr.sizes[length(dim.noyr.sizes)])
-      for (j in 1:(length(out)/nvalues.per.row)){  #j=1
+
+      nrows.per.year=length(out)/nvalues.per.row
+
+      for (j in 1:nrows.per.year){  #j=1
         out.sub = out[((j-1)*nvalues.per.row+1):(j*nvalues.per.row)]
-        cat( paste0(out.sub, sep=paste0(sep.data)) , file = outputfile, append = TRUE)  # slow, but essential...
-        cat( '\n' , file = outputfile, append = TRUE)
+
+
+        # adds sep.data after each df value.
+        if(i == dim.year.size & j==nrows.per.year){
+
+         #Last df value cannot include sep.data, leads to runtime error
+          cat(paste0(out.sub[1:(length(out.sub)-1)], sep=paste0(sep.data)),  file = outputfile, append = TRUE)
+          cat(paste0(out.sub[length(out.sub)], sep="" ),  file = outputfile, append = TRUE)
+                                }
+       else
+         {cat(paste0(out.sub, sep=paste0(sep.data)),  file = outputfile, append = TRUE)} # slow, but essential...
+
+         cat( '\n' , file = outputfile, append = TRUE)
         # Note: you can't first build output string, then write everything at once (for higher speed)
         # out.str = paste0(out.str, paste0(out.sub, sep=paste0(sep.data)), '\n')
         # this is fast, but wrong: does not create true matrix format in the text file
