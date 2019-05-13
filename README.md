@@ -58,6 +58,16 @@ Here is an example that can be used seperately or in looping. Editable elements 
 # Define your parameters
 RELEVANT_INFO = 'The source of my data is NAME (YEAR) http://www.example_here.blah'
 
+# Your full R data frame
+FULL_DATA = R_DATA
+
+# The subset of Dimensions (in factor levels)
+MyM_DIMS = SUBSET
+
+# Transform to writable data
+YOUR_DF_IN_R <-  prepare.r2mym(FULL_DATA, MyM_DIMS, COLUMN_WITH_VALUES)
+
+# Write to .dat
   write.r2mym(data = YOUR_DF_IN_R, 
               outputfile = 'FOLDER_STRUCTURE/FILE.out', 
               value.var = 'COLUMN_WITH_VALUES', 

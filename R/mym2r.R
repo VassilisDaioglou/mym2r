@@ -319,6 +319,17 @@ read.store.mym2r = function(run.scens, run.vars, mym.folder=project.folder, nova
   return(data)
 }
 
+#' prepare.r2mym helps you merge an R table with the data.frame output you want for MyM
+#'
+#' @param data Your data frame with all cols
+#' @param stub Your preferred subset of DIMs
+#' @param value.var Indication of  your value var
+#' @param NaN.value Preset to -9999
+#'
+#' @return Returns smaller dataset that can be inserted into write.r2mym()
+#' @export
+#'
+#' @examples
 prepare.r2mym <- function(data, stub, value.var, NaN.value = -9999) {
   # stub:      must have correct factor orderings, and correct order of columns.
   #            year (if applicable) should be the first column, then the MyM dimensions.
