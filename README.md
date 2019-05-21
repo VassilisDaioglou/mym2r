@@ -54,6 +54,8 @@ read.mym2r.many(filenames=c(),
 ## Writing R data to MyM files
 Here is an example that can be used seperately or in looping. Editable elements are addressed:
 
+In case of multiple dimensions; be aware of the fact that the dataset needs to be exactly inserted into the function as it should be coming out of it. This means arranging last on "Year" (time var).
+
 ```
 # Define your parameters
 RELEVANT_INFO = 'The source of my data is NAME (YEAR) http://www.example_here.blah'
