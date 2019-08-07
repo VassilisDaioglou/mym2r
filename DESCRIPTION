@@ -12,3 +12,5 @@ Imports:
     dplyr,
     stringr,
     reshape2
+Suggests: 
+    testthat
