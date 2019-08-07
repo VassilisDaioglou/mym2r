@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 19668916cf6316080c110f33a2fd3c547455a121
 ![](MyM2R_logo_small.png)
 
 # MyM2R - a David L. Bijl creation
