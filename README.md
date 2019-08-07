@@ -1,3 +1,5 @@
+![](MyM2R_logo_small.png)
+
 # MyM2R - a David L. Bijl creation
 
 At PBL Netherlands Environmental Assessment Agency we apply the MyM programming language for some of our modelling work. The inputs to these models need a particular formatting in order to process the data without (fatal) errors. To circumvent the use of our Excel macro's reformatting excel sheets, and to enter the new era of data processing, one of our former team members (David Bijl) had programmed a couple of functions to make life for all superstaR's more easy. To make MyM2R more easily available, I have put it up for easy download on github.
